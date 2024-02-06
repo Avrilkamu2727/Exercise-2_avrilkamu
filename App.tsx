@@ -1,31 +1,29 @@
 import React from 'react';
-import {
-  View,
+import { 
   Text,
-  Image,
-  TextInput,
-  ScrollView,
-  StyleSheet,
+  View, 
+  Image, 
+  StyleSheet, 
+  TextInput, 
+  ScrollView 
 } from 'react-native';
 
 const App = () => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Exercise #2 :) </Text>
-        <Text style={styles.title1}>React Native Components </Text>
-        <Image
-          style={styles.image}
-          source={require('./assets/jk.jpg')}
-        />
+      <Text style={styles.title}>Exercise #2</Text>
+      <Text style={styles.title1}>Basic Computer in RN</Text>
+      <View style={styles.row}>
+        <View style={[styles.box, { backgroundColor: 'black' }]} />
+        <View style={[styles.box, { backgroundColor: 'purple' }]} />
+        <View style={[styles.box, { backgroundColor: 'blue' }]} />
       </View>
+      
+      <Image source={require('./assets/wal.jpg')} style={styles.image} />
       <TextInput
-        style={styles.input}
-        placeholder="Explore the possibilities...."
+        style={styles.textInput}
+        placeholder="Masukkan teks di sini"
       />
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Thankyou</Text>
-      </View>
     </ScrollView>
   );
 };
@@ -34,46 +32,42 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: '#97c5e8',
-  },
-  header: {
-    alignItems: 'center',
-    marginBottom: 10,
+    backgroundColor: 'grey',
   },
   title: {
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    marginBottom: 25,
   },
   title1: {
-    fontSize: 15,
+    fontSize: 20,
     color: 'black',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
+  },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  box: {
+    width: 100,
+    height: 50,
+    marginRight: 40,
+    borderRadius: 100,
   },
   image: {
+    marginBottom: 20,
+    borderTopRightRadius:10,
+  },
+  textInput: {
+    height: 50,
+    borderColor: 'purple',
+    borderRadius: 10,
+    borderWidth: 2,
+    marginBottom: 20,
+    paddingHorizontal: 20,
     width: '100%',
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 12,
-    borderRadius: 10,
-  },
-  footer: {
-    alignItems: 'center',
-    marginTop: 400,
-  },
-  footerText: {
-    fontSize: 16,
-    color: 'black',
   },
 });
 
