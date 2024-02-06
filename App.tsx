@@ -1,117 +1,74 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
+import { 
   Text,
-  useColorScheme,
-  View,
+  View, 
+  Image, 
+  StyleSheet, 
+  TextInput, 
+  ScrollView 
 } from 'react-native';
+import Title from './src/components/Title';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <ScrollView style={styles.container}>
+      <Text style={styles.title}>Exercise #2</Text>
+      <Text style={styles.title1}>Basic Computer in RN</Text>
+      <View style={styles.row}>
+        <View style={[styles.box, { backgroundColor: '#18262a' }]} />
+        <View style={[styles.box, { backgroundColor: '#67436f' }]} />
+        <View style={[styles.box, { backgroundColor: '#0b6681' }]} />
+      </View>
+      <Title/>  
+      <Image source={require('./assets/wal.jpg')} style={styles.image} />
+      <TextInput
+        style={styles.textInput}
+        placeholder="Masukkan teks di sini"
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: 'grey',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: 'black',
+    textAlign: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  title1: {
+    fontSize: 20,
+    color: 'black',
+    textAlign: 'center',
+    marginBottom: 20,
   },
-  highlight: {
-    fontWeight: '700',
+  row: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  box: {
+    width: 100,
+    height: 50,
+    marginRight: 40,
+    borderRadius: 100,
+  },
+  image: {
+    marginBottom: 20,
+    borderTopRightRadius:10,
+  },
+  textInput: {
+    height: 50,
+    borderColor: 'purple',
+    borderRadius: 20,
+    borderWidth: 2,
+    marginBottom: 30,
+    paddingHorizontal: 20,
+    width: '100%',
   },
 });
 
