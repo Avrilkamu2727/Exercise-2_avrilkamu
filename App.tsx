@@ -1,30 +1,30 @@
 import React from 'react';
 import { 
   Text,
-  View, 
-  Image, 
   StyleSheet, 
   TextInput, 
-  ScrollView 
+  View ,
+  TouchableOpacity,
 } from 'react-native';
 
 const App = () => {
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Exercise #2</Text>
-      <Text style={styles.title1}>Basic Computer in RN</Text>
-      <View style={styles.row}>
-        <View style={[styles.box, { backgroundColor: 'black' }]} />
-        <View style={[styles.box, { backgroundColor: 'purple' }]} />
-        <View style={[styles.box, { backgroundColor: 'blue' }]} />
-      </View>
-      
-      <Image source={require('./assets/wal.jpg')} style={styles.image} />
+    <View style={styles.container}>
+      <Text style={styles.title1}>Welcome</Text>
+      <Text style={styles.title2}>Username</Text>
       <TextInput
         style={styles.textInput}
-        placeholder="Masukkan teks di sini"
+        placeholder="Masukan Username anda"
       />
-    </ScrollView>
+      <Text style={styles.title2}>Password</Text>
+      <TextInput
+        style={styles.textInputPASS}
+        placeholder="Masukan Password anda"
+      />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Sign in</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -32,42 +32,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: 'grey',
-  },
-  title: {
-    fontSize: 50,
-    fontWeight: 'bold',
-    color: 'black',
-    textAlign: 'center',
+    backgroundColor: 'white',
   },
   title1: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: 35,
+  },
+  title2: {
     fontSize: 20,
     color: 'black',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
-  box: {
-    width: 100,
-    height: 50,
-    marginRight: 40,
-    borderRadius: 100,
-  },
-  image: {
-    marginBottom: 20,
-    borderTopRightRadius:10,
+    marginBottom: 10,
+    fontWeight: 'bold',
+
   },
   textInput: {
     height: 50,
-    borderColor: 'purple',
+    borderColor: 'grey',
     borderRadius: 10,
     borderWidth: 2,
-    marginBottom: 20,
-    paddingHorizontal: 20,
+    marginBottom: 30,
+    paddingHorizontal: 15,
     width: '100%',
+  },
+  textInputPASS: {
+    height: 50,
+    borderColor: 'grey',
+    borderRadius: 10,
+    borderWidth: 2,
+    marginBottom: 40,
+    paddingHorizontal: 15,
+    width: '100%',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#F98410',
+    padding: 15,
+    borderRadius: 12,
+  },
+  buttonText: {
+    color: 'white',
   },
 });
 
